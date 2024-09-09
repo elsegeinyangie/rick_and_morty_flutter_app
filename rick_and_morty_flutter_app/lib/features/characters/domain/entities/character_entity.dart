@@ -2,6 +2,7 @@
 import 'package:equatable/equatable.dart';
 
 class CharacterEntity extends Equatable {
+  final int id;
   final String name;
   final String status;
   final String species;
@@ -11,6 +12,7 @@ class CharacterEntity extends Equatable {
   final List<String> episodes;
 
   CharacterEntity({
+    required this.id,
     required this.name,
     required this.status,
     required this.species,
@@ -22,7 +24,8 @@ class CharacterEntity extends Equatable {
 
   @override
   // TODO: implement props
-  List<Object?> get props => [name, status, species, gender, location, image, episodes];
+  List<Object?> get props =>
+      [id, name, status, species, gender, location, image, episodes];
 
   @override
   // TODO: implement stringify
