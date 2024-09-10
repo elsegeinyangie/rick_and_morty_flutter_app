@@ -1,6 +1,8 @@
-part of 'character_bloc.dart';
+import 'package:equatable/equatable.dart';
 
-@immutable
-sealed class CharacterEvent {}
+abstract class CharacterEvent extends Equatable {
+  @override
+  List<Object?> get props => [];
+}
 
-class FetchCharacter extends CharacterEvent{}
+class FetchCharacters extends CharacterEvent {}

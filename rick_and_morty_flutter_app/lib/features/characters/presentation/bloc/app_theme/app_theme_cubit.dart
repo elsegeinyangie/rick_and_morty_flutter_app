@@ -14,4 +14,5 @@ class AppThemeCubit extends Cubit<ThemeData> {
       emit(darkMode);
     }
   }
+
 }

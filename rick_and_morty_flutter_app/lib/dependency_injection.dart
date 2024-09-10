@@ -7,6 +7,7 @@ import 'package:rick_and_morty_flutter_app/features/characters/data/repositories
 import 'package:rick_and_morty_flutter_app/features/characters/domain/repositories/character_repository.dart';
 import 'package:rick_and_morty_flutter_app/features/characters/domain/usecases/character_usecase.dart';
 import 'package:rick_and_morty_flutter_app/features/characters/presentation/bloc/app_theme/app_theme_cubit.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 final getIt = GetIt.instance;
 
@@ -14,12 +15,17 @@ void setup() {
   ///register [http] client for [api requests]
   getIt.registerLazySingleton(() => http.Client());
 
+  /// register [Shared Prefereneces]
+  getIt.registerLazySingleton<SharedPreferencesAsync>(
+      () => SharedPreferencesAsync());
+
   /// register [remoteDataSource]
   getIt.registerLazySingleton<RemoteDataSource>(
       () => RemoteDataSourceImpl(client: getIt<http.Client>()));
 
   /// register [localDataSource]
-  getIt.registerLazySingleton<LocalDataSource>(() => LocalDataSourceImpl());
+  getIt.registerLazySingleton<LocalDataSource>(
+      () => LocalDataSourceImpl(asyncPrefs: getIt<SharedPreferencesAsync>()));
 
   ///register [connectivity checker]
   getIt.registerLazySingleton<Connectivity>(() => Connectivity());
@@ -35,7 +41,7 @@ void setup() {
 
   /// register [usecase]
   getIt.registerLazySingleton<CharacterUsecase>(
-    () => CharacterUsecase(repository: getIt<CharacterRepository>()),
+    () => CharacterUsecase(characterRepository: getIt<CharacterRepository>()),
   );
 
   ///register [themes]

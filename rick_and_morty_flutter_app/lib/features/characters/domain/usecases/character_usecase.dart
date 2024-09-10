@@ -1,14 +1,12 @@
-import 'package:rick_and_morty_flutter_app/features/characters/domain/entities/character_entity.dart';
 import 'package:rick_and_morty_flutter_app/features/characters/domain/repositories/character_repository.dart';
+import 'package:rick_and_morty_flutter_app/features/characters/domain/entities/character_entity.dart';
 
 class CharacterUsecase {
-  final CharacterRepository repository;
+  final CharacterRepository characterRepository;
 
-  //reposity dependecy injection
-  CharacterUsecase({required this.repository});
+  CharacterUsecase({required this.characterRepository});
 
-  //execute method calls the repository to get the character
-  Future<CharacterEntity> execute() async {
-    return repository.getCharacter();
+  Future<List<CharacterEntity>> execute() async {
+    return await characterRepository.getCharacters();
   }
 }

@@ -17,27 +17,29 @@ class CharacterRepositoryImpl implements CharacterRepository {
       required this.connectivity});
 
   @override
-  Future<CharacterEntity> getCharacter() async {
+  Future<List<CharacterEntity>> getCharacters() async {
     //first check the internet connectivity status
     final connectivityResult = await connectivity.checkConnectivity();
 
     //if there is internet, try to fetch the character data from the remote source (api)
     if (connectivityResult != ConnectivityResult.none) {
       try {
-        final character = await remoteDataSource.fetchRemoteData();
+        final List<CharacterModel> characters =
+            await remoteDataSource.fetchAllCharacters();
         //cache the retrieved data
-        localDataSource.cacheCharacter(character as CharacterModel);
-        return character; //return fetched character
+        localDataSource.cacheCharacters(characters);
+        return characters; //return fetched character
       } catch (e) {
         throw Exception('Failed to cache character: ${e.toString()}');
       }
     } else {
       //if there is no internet connection, fetch data from local cache
       try {
-        return await localDataSource.getCachedData();
+        final cachedCharacters = await localDataSource.getCachedCharacters();
+        return cachedCharacters;
       } catch (e) {
-                throw Exception('No internet connection and failed to get cached character: ${e.toString()}');
-
+        throw Exception(
+            'No internet connection and failed to get cached character: ${e.toString()}');
       }
     }
   }

@@ -1,25 +1,28 @@
-part of 'character_bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:rick_and_morty_flutter_app/features/characters/domain/entities/character_entity.dart';
 
-@immutable
-sealed class CharacterState {}
 
-final class CharacterInitial extends CharacterState {}
+abstract class CharacterState extends Equatable {
+  @override
+  List<Object?> get props => [];
+}
 
-/// state when the app is [loading data]
 class CharacterLoading extends CharacterState {}
 
-/// state when the app has [successfully loaded data]
 class CharacterLoaded extends CharacterState {
-  final CharacterEntity characterEntity;
-  CharacterLoaded({required this.characterEntity});
+  final List<CharacterEntity> characters;
+
+  CharacterLoaded({required this.characters});
+
+  @override
+  List<Object?> get props => [characters];
 }
 
-
-/// state whne there is an [error loading data]
 class CharacterError extends CharacterState {
   final String message;
+
   CharacterError({required this.message});
+
+  @override
+  List<Object?> get props => [message];
 }
-
-
-//state to toggle light/dark theme

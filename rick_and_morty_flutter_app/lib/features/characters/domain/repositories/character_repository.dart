@@ -2,5 +2,5 @@ import 'package:rick_and_morty_flutter_app/features/characters/domain/entities/c
 
 abstract class CharacterRepository {
   //a method to fetch a user
-  Future<CharacterEntity> getCharacter();
+  Future<List<CharacterEntity>> getCharacters();
 }
