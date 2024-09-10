@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:rick_and_morty_flutter_app/core/error/exceptions.dart';
 import 'package:rick_and_morty_flutter_app/features/characters/domain/entities/character_entity.dart';
@@ -25,13 +26,6 @@ class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
           }
         }
       }
-
-
-    //light and dark theme
-
-
-    //list to grid view
-
 
     });
   }

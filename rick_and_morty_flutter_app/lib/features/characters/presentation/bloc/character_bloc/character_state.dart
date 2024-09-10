@@ -20,3 +20,6 @@ class CharacterError extends CharacterState {
   final String message;
   CharacterError({required this.message});
 }
+
+
+//state to toggle light/dark theme

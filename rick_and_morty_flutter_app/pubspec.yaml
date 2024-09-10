@@ -20,7 +20,7 @@ dependencies:
   # Value equality
   equatable: ^2.0.5
   # Remote API
-  internet_connection_checker: ^2.0.0
+  connectivity_plus: ^6.0.5
   http: ^1.2.2
   # Local cache
   shared_preferences: ^2.3.2
