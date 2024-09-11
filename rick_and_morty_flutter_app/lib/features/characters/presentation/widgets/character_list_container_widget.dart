@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:rick_and_morty_flutter_app/features/characters/presentation/bloc/app_theme/app_theme_cubit.dart';
 
+import '../../../../dependency_injection.dart';
 import '../../domain/entities/character_entity.dart';
 import '../pages/character_details_page.dart';
 

@@ -9,6 +9,8 @@ import 'package:rick_and_morty_flutter_app/features/characters/domain/usecases/c
 import 'package:rick_and_morty_flutter_app/features/characters/presentation/bloc/app_theme/app_theme_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'features/characters/presentation/bloc/views/view_cubit.dart';
+
 final getIt = GetIt.instance;
 
 void setup() {
@@ -44,6 +46,9 @@ void setup() {
     () => CharacterUsecase(characterRepository: getIt<CharacterRepository>()),
   );
 
-  ///register [themes]
+  ///register [themesCubit]
   getIt.registerLazySingleton(() => AppThemeCubit());
+
+   ///register [viewCubit]
+  getIt.registerLazySingleton(() => ViewCubit());
 }
