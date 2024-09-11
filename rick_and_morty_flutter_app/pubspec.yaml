@@ -22,9 +22,12 @@ dependencies:
   # Remote API
   connectivity_plus: ^6.0.5
   http: ^1.2.2
+  url_launcher: ^6.3.0
+
   # Local cache
   shared_preferences: ^2.3.2
   font_awesome_flutter: ^10.7.0
+
 
   cupertino_icons: ^1.0.8
   cached_network_image: ^3.4.1

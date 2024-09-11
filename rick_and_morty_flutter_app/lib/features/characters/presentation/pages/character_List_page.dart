@@ -40,8 +40,11 @@ class CharacterListPage extends StatelessWidget {
               ),
             );
           } else if (characterState is CharacterError) {
-            return Center(child: Text('Error: ${characterState.message}',       overflow: TextOverflow.ellipsis,
-));
+            return Center(
+                child: Text(
+              'Error: ${characterState.message}',
+              overflow: TextOverflow.ellipsis,
+            ));
           } else {
             return Center(
                 child: Text('No data available')); // Default fallback widget
