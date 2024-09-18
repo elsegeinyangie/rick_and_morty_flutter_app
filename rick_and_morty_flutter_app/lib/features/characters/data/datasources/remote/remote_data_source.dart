@@ -1,3 +1,5 @@
+import 'package:rick_and_morty_flutter_app/core/constants/api_constants.dart';
+
 import '../../models/character_model.dart';
 import '../../../domain/entities/character_entity.dart';
 import 'package:http/http.dart' as http;
@@ -16,7 +18,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   Future<List<CharacterModel>> fetchAllCharacters() async {
     List<CharacterModel> characters = [];
     final response = await client
-        .get(Uri.parse('https://rickandmortyapi.com/api/character'));
+        .get(Uri.parse('${ApiConstants.baseUrl}${ApiConstants.characters}'));
 
     if (response.statusCode == 200) {
       ///if api request to get character is successful,

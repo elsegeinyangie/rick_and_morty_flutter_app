@@ -37,7 +37,7 @@ void setup() {
     () => CharacterRepositoryImpl(
       localDataSource: getIt<LocalDataSource>(),
       remoteDataSource: getIt<RemoteDataSource>(),
-      connectivity: getIt<Connectivity>(),
+      connectivity: getIt(),
     ),
   );
 

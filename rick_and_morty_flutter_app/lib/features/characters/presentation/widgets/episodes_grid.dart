@@ -13,7 +13,7 @@ class EpisodesGrid extends StatelessWidget {
   //     throw Exception('Could not launch $_url');
   //   }
   // }
-
+  String episode = '';
   @override
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).colorScheme.primary;
@@ -32,7 +32,7 @@ class EpisodesGrid extends StatelessWidget {
         itemCount: episodeUrls.length,
         itemBuilder: (context, index) {
           // Extract episode number from URL or just use index
-          String episode = 'S${index + 1}EP${index + 1}';
+          episode = 'S${index + 1}EP${index + 1}';
 
           return SizedBox(
             width: 80,
@@ -47,7 +47,7 @@ class EpisodesGrid extends StatelessWidget {
                 ),
               ),
               style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.all(0),
+                  padding: EdgeInsets.all(0),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),

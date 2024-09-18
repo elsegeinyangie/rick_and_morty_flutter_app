@@ -17,6 +17,7 @@ class CharacterDetailsPage extends StatelessWidget {
     final secondaryColor = Theme.of(context).colorScheme.secondary;
 
     return Scaffold(
+      //use FutureBuilder to call the _onFetchCharacters bloc method here instead of calling the _onFetchCharacter bloc method in the constructor
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -28,7 +29,10 @@ class CharacterDetailsPage extends StatelessWidget {
                 character.image,
                 fit: BoxFit.cover,
               ),
-              title: Text(character.name, style: TextStyle(fontWeight: FontWeight.bold),),
+              title: Text(
+                character.name,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
             actions: <Widget>[
               IconButton(
